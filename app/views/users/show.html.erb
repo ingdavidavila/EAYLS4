@@ -1,0 +1,9 @@
+<div class = "container" id="home-container">
+<h1 class = "text-center"><%= @user.nombredeusuario %></h1>
+</div>
+<div class = "text-center"><%= image_tag(url_for(@user.avatar_elements),:size => "360x280") %>
+</div>
+<div>
+<%= render 'articulos/articulos' %>
+
+</div>

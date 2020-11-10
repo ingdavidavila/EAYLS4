@@ -1,0 +1,22 @@
+<div class= "container" id="show-container">
+  <h1 class="text-center mt-4"><%= @articulo.titulo %></h2>
+    <div class="container">
+      <div class="card mb-3 shadow mb-5 bg-white rounded" style="max-width">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <h1 class = "text-align-left"><%= image_tag(url_for(@articulo.image_elements), :size => "300x200") %></h1>
+          </div>
+          <div class="col-md-12">
+            <div class="card-body">
+              <h5 class="card-title text-align-right"><%= @articulo.titulo %></h5>
+              <div class="card-text text-align-right"><%= simple_format(@articulo.cuerpo) %></div>
+              <div class="card-text text-align-right"><small class="text-muted">Creado hace <%= time_ago_in_words(@articulo.updated_at) %></small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-outline-primary">
+    <%= link_to 'Regresar A Casa', root_path %>
+  </button>
+</dv>

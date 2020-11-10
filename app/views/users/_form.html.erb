@@ -1,0 +1,29 @@
+<%= render 'shared/errors', obj: @user %>
+
+<%= form_with(model: @user, local: true)  do |f| %>
+  <div class="form-group row">
+    <%= f.label :nombre_De_Usuario, class: "col-form-label" %><br/>
+    <%= f.text_field :nombredeusuario, class: "form-control", placeholder: "Aqui Va Tu Usuario" %>
+  </div>
+  <div class="form-group row">
+    <%= f.label :email, class: "col-form-label" %><br/>
+    <%= f.email_field :email, class: "form-control", placeholder: "Aqui Va Tu E-mail" %>
+  </div>
+  <div class="form-group row">
+    <%= f.label :password, class: "col-form-label" %><br/>
+    <%= f.password_field :password, class: "form-control", placeholder: "Aqui Va Tu Contrasena" %>
+  </div>
+
+  <div class="form-group row">
+    <% if @user.avatar_elements.attached? %>
+      <%= image_tag @user.avatar_elements, style: "width: 200px; display: block" %>
+    <% end%>
+    <%= f.label "Foto de Perfil" %>
+    <%= f.file_field :avatar_elements, class: "form-control" %><br/>
+  </div>
+
+
+  <div class="form-group row justify-content-center">
+    <%= f.submit(@user.new_record? ? "Registrarse" : "Edita Tu Cuenta", class: "btn btn-outline-light btn-lg") %>
+  </div>
+<% end %>

@@ -1,0 +1,23 @@
+<%= render 'shared/errors', obj: @articulo %>
+
+<%= form_with(model: @articulo, local: true)  do |f| %>
+  <div class="form-group row">
+    <%= f.label :titulo, class: "col-form-label" %><br/>
+    <%= f.text_field :titulo, class: "form-control" %>
+  </div>
+  <div class="form-group row">
+    <%= f.label :cuerpo, class: "col-form-label" %><br/>
+    <%= f.text_area :cuerpo, rows: 15, class: "form-control" %>
+  </div>
+  <div class="form-group row">
+  <%= f.label :categoria, class: "col-form-label" %><br/>
+  <%= f.text_area :categoria, rows: 2, class: "form-control" %>
+  </div>
+  <div class="form-group row">
+    <%= f.label "Foto De Articulo" %>
+    <%= f.file_field :image_elements %><br/>
+  </div>
+  <div class="form-group row justify-content-center">
+    <%= f.submit class: "btn btn-outline-light btn-lg" %>
+  </div>
+<% end %>

@@ -1,0 +1,30 @@
+<div class= "container text-center" id="home-container">
+<table class="text-center">
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Creador</th>
+      <th>Categoria</th>
+    </tr>
+  </thead>
+
+  <%= will_paginate @articulo %>
+  <tbody>
+    <% @articulo.each do |articulo| %>
+      <tr>
+        <td class= "text-left"><%= articulo.titulo %></td>
+        <td class= "text-left"><%= articulo.user.nombredeusuario %></td>
+        <td class= "text-left"><%= articulo.categoria %></td>
+        <td><%= link_to 'Mostrar', articulo_path(articulo) %></td>
+        <td><%= link_to 'Editar', edit_articulo_path(articulo) %></td>
+        <td><%= link_to 'Eliminar', articulo_path(articulo), method: :delete, data: { confirm: "Estas Seguro De Querer Eliminar?" } %></td>
+      </tr>
+      <% end %>
+  </tbody>
+
+</table>
+<p class= "text-left">
+<%= link_to 'Nuevo Articulo', new_articulo_path %>
+</p>
+  <%= will_paginate @articulo %>
+</div>

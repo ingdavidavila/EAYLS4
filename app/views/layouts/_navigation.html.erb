@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<%= link_to "El Aguila y La Serpiente", root_path, class: "navbar-brand" %>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "Acerca De", acercade_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Deportes", deportes_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Sociales", sociales_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Clasificados", clasificados_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Rincon Otaku", otaku_path, class: "nav-link" %>
+      </li>
+      <% if sesion_iniciada? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= "(Admin)" if usuario_ensesion.admin? %> <%= usuario_ensesion.nombredeusuario %>
+          </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "Ve Tu Perfil", user_path(usuario_ensesion), class: "dropdown-item" %>
+              <%= link_to "Edita Tu Perfil", edit_user_path(usuario_ensesion), class: "dropdown-item" %>
+              <%= link_to "Borra Tu Perfil", user_path(usuario_ensesion), class: "dropdown-item text-danger", method: :delete, data: { confirm: "Estas Seguro?" } %>
+            </div>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to "Cerrar Sesion", cerrarsesion_path, class: "nav-link", method: :delete %>
+        </li>
+
+        <% else %>
+        <li class="nav-item">
+          <%= link_to "Iniciar Sesion", ingresar_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Registrarse", registrarse_path, class: "nav-link" %>
+        </li>
+      <% end %>
+      <% if sesion_iniciada? && usuario_ensesion.admin? %>
+        <li class="nav-item">
+          <%= link_to "Crear Articulo", new_articulo_path, class: "nav-link" %>
+        </li>
+      <% end %>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Ingresa tu busqueda" aria-label="search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><%= link_to "Buscar", buscar_path, class: "nav-link" %></button>
+
+    </form>
+  </div>
+</nav>
