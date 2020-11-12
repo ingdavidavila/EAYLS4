@@ -1,0 +1,23 @@
+<h1 class= "text-center">Resultado De Tu Busqueda</h1>
+
+
+
+    <div class="container" id="buscar-container">
+        <% @results.each do |result| %>
+      <div class="card mb-3 shadow mb-5 bg-white rounded" style="max-width">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <h1 class = "text-align-left"><%= image_tag(url_for(result.image_elements), :size => "300x200") %></h1>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title text-center"><%= result.titulo %></h5>
+              <p class="card-text text-center"><%= result.cuerpo.truncate(100) %></p>
+              <p class="card-text text-center"><%= result.user.nombredeusuario %></p>
+              <p class="card-text text-center"><small class="text-muted">Creado hace <%= time_ago_in_words(result.updated_at) %></small></p>
+              <h6 class= "text-center"><%= link_to "Leer mas", articulo_path(result), class: "btn btn-success btn-lg " %></h6>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>

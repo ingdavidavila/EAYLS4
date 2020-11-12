@@ -24,6 +24,14 @@ class PagesController < ApplicationController
   end
 
   def buscar
+    def buscar
+      if params[:search].blank? 
+      redirect_to(root_path, alert: "Empty field!") and return
+      else
+      @parameter = params[:search].downcase
+      @results = Articulo.all.where("lower(titulo) LIKE :search", search: "%#{@parameter}%")
+      end
+  end
   end
 
 

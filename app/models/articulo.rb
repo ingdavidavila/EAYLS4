@@ -4,4 +4,8 @@ class Articulo < ApplicationRecord
     validates :cuerpo, presence: true, length: {minimum: 10, maximum: 30000}
     has_one_attached :image_elements
     before_save {self.categoria = categoria.downcase}
+
+    def self.search(search)
+        where("lower(articulo.titulo) LIKE :search", search: "%#{search.downcase}%").uniq   
+    end
 end
