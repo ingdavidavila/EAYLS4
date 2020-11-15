@@ -1,5 +1,5 @@
 class ArticulosController < ApplicationController
-  before_action :set_articulo, only: [:show, :edit, :update, :destroy]
+    before_action :set_articulo, only: [:show, :edit, :update, :destroy]
     before_action :requerir_usuario, except: [:index, :show]
     before_action :requerir_mismo_usuario, only: [:edit, :update, :destroy]
 

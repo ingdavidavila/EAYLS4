@@ -11,8 +11,12 @@ Rails.application.routes.draw do
   post 'ingresar', to: 'session#crear'
   delete 'cerrarsesion', to: 'session#destruir'
   get 'buscar', to: 'pages#buscar'
+  post 'password/forgot', to: 'password#forgot'
+  post 'password/reset', to: 'password#reset'
   resources :articulos
+  resources :sessions
   resources :users, except: [:new]
   resources :image_elements
   resources :avatar_elements
+  resources :password_resets
 end
