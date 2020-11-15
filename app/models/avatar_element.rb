@@ -1,4 +1,4 @@
 class AvatarElement < ApplicationRecord
-  belongs_to :page
-  has_one_attached :image
+  belongs_to :user
+  has_one_attached :avatar
 end

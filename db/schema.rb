@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_12_051552) do
+ActiveRecord::Schema.define(version: 2020_11_15_231543) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -43,17 +43,24 @@ ActiveRecord::Schema.define(version: 2020_11_12_051552) do
   end
 
   create_table "avatar_elements", force: :cascade do |t|
-    t.integer "page_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["page_id"], name: "index_avatar_elements_on_page_id"
+    t.index ["user_id"], name: "index_avatar_elements_on_user_id"
   end
 
   create_table "image_elements", force: :cascade do |t|
-    t.integer "page_id", null: false
+    t.integer "articulo_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["page_id"], name: "index_image_elements_on_page_id"
+    t.index ["articulo_id"], name: "index_image_elements_on_articulo_id"
+  end
+
+  create_table "image_elements2s", force: :cascade do |t|
+    t.integer "articulo_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["articulo_id"], name: "index_image_elements2s_on_articulo_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,6 +76,7 @@ ActiveRecord::Schema.define(version: 2020_11_12_051552) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "avatar_elements", "pages"
-  add_foreign_key "image_elements", "pages"
+  add_foreign_key "avatar_elements", "users"
+  add_foreign_key "image_elements", "articulos"
+  add_foreign_key "image_elements2s", "articulos"
 end

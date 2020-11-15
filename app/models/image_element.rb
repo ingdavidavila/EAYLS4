@@ -1,5 +1,4 @@
 class ImageElement < ApplicationRecord
-  belongs_to :page
+  belongs_to :articulo
   has_one_attached :image
-
 end
