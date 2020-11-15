@@ -1,3 +1,4 @@
 class Page < ApplicationRecord
-  has_one :image_elements
+  has_one_attached image_elements
+
 end

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post 'password/reset', to: 'password#reset'
   resources :articulos
   resources :sessions
+  resources :pages
   resources :users, except: [:new]
   resources :image_elements
   resources :avatar_elements
