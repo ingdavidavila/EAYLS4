@@ -10,7 +10,7 @@
         <div class="card-body">
           <h5 class="card-title text-center"><%= articulo.titulo %></h5>
           <p class="card-text text-center"><%= articulo.cuerpo.truncate(100) %></p>
-          
+          <p class="card-text text-center"><%= articulo.user.nombredeusuario %></p>
           <p class="card-text text-center"><small class="text-muted">Creado hace <%= time_ago_in_words(articulo.updated_at) %></small></p>
           <h6 class= "text-center"><%= link_to "Leer mas", articulo_path(articulo), class: "btn btn-success btn-lg " %></h6>
         </div>
