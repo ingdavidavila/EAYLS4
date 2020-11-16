@@ -2,3 +2,14 @@
   <h1 class = "text-center">Administradores</h1>
 
 </div>
+
+<% @user.each do |user| %>
+  <tr>
+    <td class= "text-left"><%= user.admin? %></td>
+    <td class= "text-left"><%= user.nombredeusuario %></td>
+    <td><%= link_to 'Mostrar', user_path(user) %></td>
+    <td><%= link_to 'Editar', edit_user_path(user) %></td>
+    <td><%= link_to 'Eliminar', user_path(user), method: :delete, data: { confirm: "Estas Seguro De Querer Eliminar?" } %></td>
+  </tr><br>
+  <% end %>
+</div>
