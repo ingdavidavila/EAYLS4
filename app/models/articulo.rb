@@ -2,7 +2,7 @@ class Articulo < ApplicationRecord
     belongs_to :user
     validates :titulo, presence: true, length: {minimum: 6, maximum: 100}
     validates :cuerpo, presence: true, length: {minimum: 10, maximum: 30000}
-    has_one_attached :image_element
+    has_one_attached :image_elements
     before_save {self.categoria = categoria.downcase}
 
     def self.search(search)
