@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      cookie[:auth_token] = @user.id
+      cookies[:auth_token] = @user.id
       flash[:notice] = "Bienvenido A El Aguila y La Serpiente, #{@user.nombredeusuario} Tu Usuario A Sido Registrado"
       redirect_to articulos_path
     else
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-
+    @user = User.find(params[:id])
   end
 
   def show
@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = "Usuario Editado Con Exito"
       redirect_to @user
@@ -49,7 +50,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:nombredeusuario, :email, :password, :avatar_elements)
+    params.require(:user).permit(:nombredeusuario, :email, :password, :avatar_elements, :admin, :auth_token)
   end
 
   def set_user
