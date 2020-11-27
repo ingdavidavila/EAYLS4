@@ -12,6 +12,11 @@
   color: white !important;
 }
 
+.carousel-item{
+  height: 30rem;
+  background: #777;
+}
+
 #home-container{
   margin-top: 25px;
 }
@@ -29,7 +34,6 @@ body {
 #page-content {
   flex: 1 0 auto;
   background-color: lightgrey;
-
 }
 
 #sticky-footer {
