@@ -460,6 +460,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   fog
+  fog-aws
   jbuilder (~> 2.7)
   listen (~> 3.2)
   mini_magick

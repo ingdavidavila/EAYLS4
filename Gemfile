@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
+gem 'fog-aws'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
