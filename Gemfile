@@ -21,6 +21,9 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -31,6 +34,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :development, :test do
