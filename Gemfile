@@ -25,6 +25,7 @@ gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
 #gem 'fog'
 gem 'fog-aws'
+gem "aws-sdk-s3", require: false
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
