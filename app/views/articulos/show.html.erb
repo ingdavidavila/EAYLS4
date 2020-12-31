@@ -1,6 +1,8 @@
 <div class= "container" id="show-container">
   <h1 class="text-center mt-4"><%= @articulo.titulo %></h1>
     <h2 class="text-center mt-4"><%= social_share_button_tag(@articulo.titulo) %></h2>
+    <%= social_share_button_tag(@articulo.titulo, :allow_sites => %w(twitter facebook)) %>
+    <%= social_share_button_tag('Share to Facebook', :url => articulo_path(@articulo), desc: @articulo.titulo) %>
     <div class="container">
       <div class="card mb-3 shadow mb-5 bg-white rounded" style="max-width">
         <div class="row no-gutters">
